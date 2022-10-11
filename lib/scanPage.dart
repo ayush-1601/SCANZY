@@ -82,7 +82,6 @@ class _ScanPageState extends State<ScanPage> {
         icon: const Icon(Icons.camera_alt),
         label: Text("Scan Here"),
         //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,

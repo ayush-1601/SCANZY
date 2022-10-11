@@ -35,26 +35,32 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 80.0),
-            flatbutton("scan", ScanPage()),
+            button("scan", ScanPage()),
             const SizedBox(height: 20.0),
-            flatbutton("generate", GeneratePage())
+            button("generate", GeneratePage())
           ],
         ),
       ),
     );
   }
 
-  Widget flatbutton(String text, Widget widget) {
-    return FloatingActionButton.extended(
+  Widget button(String text, Widget widget) {
+    return ElevatedButton(
       onPressed: () {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => widget));
       },
-      
+      style: ButtonStyle(
+          shape: ButtonStyleButton.allOrNull(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0)))),
+
       // shape: RoundedRectangleBorder(
       //     side: const BorderSide(color: Colors.black87, width: 5.0),
       //     borderRadius: BorderRadius.circular(20.0)),
-      label: Text(text, style: const TextStyle(color: Colors.amber, fontSize: 20),),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.amber, fontSize: 20),
+      ),
     );
   }
 }

@@ -17,6 +17,10 @@
         <action android:name="android.intent.action.VIEW" />
         <data android:scheme="tel" />
     </intent>
+    <intent>
+        <action android:name="android.intent.action.ACTION_SEND" />
+        <data android:scheme="share" />
+    </intent>
     </queries>
 
     <uses-permission android:name="android.permission.CAMERA"/>
