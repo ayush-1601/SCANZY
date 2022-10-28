@@ -1,3 +1,6 @@
+// import 'dart:html';
+// import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/services.dart';
@@ -17,18 +20,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "QR Code Scanner & Generator".toUpperCase(),
-          style: GoogleFonts.lato(
-            textStyle: Theme.of(context).textTheme.displaySmall,
-            fontSize: 21,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Color(0xffff82b59),
-      ),
+      // appBar: AppBar(
+      //   title: Text(
+      //     "QR Code Scanner & Generator".toUpperCase(),
+      //     style: GoogleFonts.lato(
+      //       textStyle: Theme.of(context).textTheme.displaySmall,
+      //       fontSize: 21,
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      //   centerTitle: true,
+      //   backgroundColor: Color(0xffff82b59),
+      // ),
       body: Container(
         color: Color(0xfffed883),
         height: MediaQuery.of(context).size.height,
@@ -38,6 +41,22 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text(
+              "QR Code",
+              style: GoogleFonts.lato(
+                fontSize: 70,
+                color: Color(0xfff33495f),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "App",
+              style: GoogleFonts.lato(
+                fontSize: 70,
+                color: Color(0xfff33495f),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Card(
               child: Image.asset(
                 'asset/images/img5.jpg',
@@ -91,10 +110,10 @@ class _HomePageState extends State<HomePage> {
       label: Text(
         text,
         style: GoogleFonts.lato(
-            textStyle: Theme.of(context).textTheme.displaySmall,
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
-          ),
+          textStyle: Theme.of(context).textTheme.displaySmall,
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+        ),
       ),
       backgroundColor: Color(0xffff82b59),
     );

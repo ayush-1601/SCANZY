@@ -36,16 +36,24 @@ class _GeneratePageState extends State<GeneratePage> {
                 RepaintBoundary(
                   key: globalKey,
                   child: Container(
-                    color: Colors.white,
+                    // color: Colors.white,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.red),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 350, width: 350,
+                    // padding: EdgeInsets.all(8.0),
                     child: QrImage(
                       data: qrData,
                       padding: EdgeInsets.all(40.0),
                     ),
                   ),
                 ),
+                SizedBox(height: 50),
                 const Text(
-                  "New QR Link Generator",
+                  "New QR Link Generator", style: TextStyle(fontSize: 20),
                 ),
+                SizedBox(height: 20,),
                 TextField(
                   controller: qrdataFeed,
                   decoration: const InputDecoration(
@@ -72,7 +80,7 @@ class _GeneratePageState extends State<GeneratePage> {
                         label: const Text("Generate QR"),
                       ),
                       const SizedBox(
-                        height: 20.0,
+                        height: 10.0,
                       ),
                       FloatingActionButton.extended(
                         onPressed: _shareqr,

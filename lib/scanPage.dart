@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ScanPage extends StatefulWidget {
@@ -11,8 +12,8 @@ class ScanPage extends StatefulWidget {
 }
 
 class _ScanPageState extends State<ScanPage> {
-  String result = "hey....";
-  Future _scanQR() async {
+  String result = "Wann'a Scan Something?";
+  Future _scanQR() async {  
     try {
       // String qrResult = await BarcodeScanner.scan() as String;
       ScanResult qrScanResult = await BarcodeScanner.scan();
@@ -58,9 +59,23 @@ class _ScanPageState extends State<ScanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("QR Scanner")),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "QR Scanner",
+          style: GoogleFonts.lato(
+            fontSize: 25,
+          ),
+        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios_sharp)),
+        backgroundColor: Color(0xfff289ac9),
+      ),
       body: Container(
-        color: Colors.white60,
+        color: Color(0xfffdff3f8),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -69,19 +84,40 @@ class _ScanPageState extends State<ScanPage> {
             // child: Text(result),
             children: [
               Image.asset(
-                'asset/images/img4.jpg',
+                'asset/images/img9.jpg',
               ),
-              TextButton(
-                onPressed: _launchedurl,
-                child: Text("Result :" + result),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xfff289ac9)),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xfff289ac9),
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.all(16.0)),
+                  onPressed: _launchedurl,
+                  child: Text(
+                    result,
+                    style: GoogleFonts.lato(fontSize: 15),
+                  ),
+                ),
+                height: 50,
+                width: 20,
+                margin: EdgeInsets.all(50),
+                // color: Color(0xfff289ac9),
               )
             ]),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _scanQR,
         icon: const Icon(Icons.camera_alt),
-        label: Text("Scan Here"),
-        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+        label: Text(
+          "Scan Here",
+          style: GoogleFonts.lato(),
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: Color(0xfff289ac9),
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
