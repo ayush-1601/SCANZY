@@ -13,7 +13,7 @@ class ScanPage extends StatefulWidget {
 
 class _ScanPageState extends State<ScanPage> {
   String result = "Wann'a Scan Something?";
-  Future _scanQR() async {  
+  Future _scanQR() async {
     try {
       // String qrResult = await BarcodeScanner.scan() as String;
       ScanResult qrScanResult = await BarcodeScanner.scan();
@@ -89,7 +89,7 @@ class _ScanPageState extends State<ScanPage> {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xfff289ac9)),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(100),
                   color: Color(0xfff289ac9),
                 ),
                 child: TextButton(
@@ -104,20 +104,23 @@ class _ScanPageState extends State<ScanPage> {
                 ),
                 height: 50,
                 width: 20,
-                margin: EdgeInsets.all(50),
+                margin: const EdgeInsets.all(50),
                 // color: Color(0xfff289ac9),
               )
             ]),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _scanQR,
-        icon: const Icon(Icons.camera_alt),
-        label: Text(
-          "Scan Here",
-          style: GoogleFonts.lato(),
+      floatingActionButton: SizedBox(
+        child: FloatingActionButton.extended(
+          onPressed: _scanQR,
+          icon: const Icon(Icons.camera_alt),
+          label: Text(
+            "Scan Here".toUpperCase(),
+            style: GoogleFonts.lato(),
+          ),
+          // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: StadiumBorder(),
+          backgroundColor: Color(0xfff289ac9),
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        backgroundColor: Color(0xfff289ac9),
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
