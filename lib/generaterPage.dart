@@ -53,8 +53,7 @@ class _GeneratePageState extends State<GeneratePage> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: const Color(0xfffdff3f8),
-                        border: Border.all(
-                            color: const Color(0xfffdff3f8), width: 5),
+                        border: Border.all(color: const Color(0xfffdff3f8), width: 5),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -64,8 +63,7 @@ class _GeneratePageState extends State<GeneratePage> {
                             spreadRadius: 5.0,
                           )
                         ]),
-                    height: 300,
-                    width: 300,
+                    height: 300, width: 300,
                     child: QrImage(
                       data: qrData,
                       padding: const EdgeInsets.all(20.0),
@@ -157,7 +155,7 @@ class _GeneratePageState extends State<GeneratePage> {
       final tempDir = await getTemporaryDirectory();
       final file1 = '${tempDir.path}/image.png';
       File(file1).writeAsBytesSync(pngBytes);
-      // ignore: deprecated_member_use
+
       await Share.shareFiles([file1],
           text: "Share the QR Code", subject: "link");
     } catch (e) {

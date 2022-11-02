@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
               elevation: 0,
               margin: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'asset/images/img5.jpg',
+                'asset/images/img1.jpg',
                 fit: BoxFit.cover,
                 height: 350,
                 width: 350,

@@ -81,7 +81,7 @@ class _ScanPageState extends State<ScanPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Image.asset(
-                'asset/images/img9.jpg',
+                'asset/images/img2.jpg',
               ),
               Container(
                 decoration: BoxDecoration(
