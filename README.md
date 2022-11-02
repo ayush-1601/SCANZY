@@ -1,4 +1,4 @@
-#Scanzy
+# Scanzy
 
 An QR Scanner and Generator app made in flutter with features to:
 
