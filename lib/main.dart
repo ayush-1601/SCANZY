@@ -3,6 +3,7 @@ import 'package:flutter_qr_scanner/homePage.dart';
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
 }
