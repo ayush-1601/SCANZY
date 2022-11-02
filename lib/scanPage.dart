@@ -15,7 +15,6 @@ class _ScanPageState extends State<ScanPage> {
   String result = "Wann'a Scan Something?";
   Future _scanQR() async {
     try {
-      // String qrResult = await BarcodeScanner.scan() as String;
       ScanResult qrScanResult = await BarcodeScanner.scan();
       String qrResult = qrScanResult.rawContent;
 
@@ -44,7 +43,6 @@ class _ScanPageState extends State<ScanPage> {
   }
 
   Future _launchedurl() async {
-    // Uri url = result as Uri;
     var url = Uri.parse(result);
     if (await canLaunchUrl(url)) {
       await launchUrl(url,
@@ -72,30 +70,29 @@ class _ScanPageState extends State<ScanPage> {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back_ios_sharp)),
-        backgroundColor: Color(0xfff289ac9),
+        backgroundColor: const Color(0xfff289ac9),
       ),
       body: Container(
-        color: Color(0xfffdff3f8),
+        color: const Color(0xfffdff3f8),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            // child: Text(result),
             children: [
               Image.asset(
                 'asset/images/img9.jpg',
               ),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xfff289ac9)),
+                  border: Border.all(color: const Color(0xfff289ac9)),
                   borderRadius: BorderRadius.circular(100),
-                  color: Color(0xfff289ac9),
+                  color: const Color(0xfff289ac9),
                 ),
                 child: TextButton(
                   style: TextButton.styleFrom(
                       foregroundColor: Colors.white,
-                      padding: EdgeInsets.all(16.0)),
+                      padding: const EdgeInsets.all(16.0)),
                   onPressed: _launchedurl,
                   child: Text(
                     result,
@@ -105,7 +102,6 @@ class _ScanPageState extends State<ScanPage> {
                 height: 50,
                 width: 20,
                 margin: const EdgeInsets.all(50),
-                // color: Color(0xfff289ac9),
               )
             ]),
       ),
@@ -117,9 +113,8 @@ class _ScanPageState extends State<ScanPage> {
             "Scan Here".toUpperCase(),
             style: GoogleFonts.lato(),
           ),
-          // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          shape: StadiumBorder(),
-          backgroundColor: Color(0xfff289ac9),
+          shape: const StadiumBorder(),
+          backgroundColor: const Color(0xfff289ac9),
         ),
       ),
       floatingActionButtonLocation:

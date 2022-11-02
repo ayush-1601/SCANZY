@@ -4,7 +4,6 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_qr_scanner/homePage.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
@@ -35,14 +34,14 @@ class _GeneratePageState extends State<GeneratePage> {
               Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back_ios_sharp)),
-        backgroundColor: Color(0xfff289ac9),
+        backgroundColor: const Color(0xfff289ac9),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: Color(0xfffdff3f8),
+            color: const Color(0xfffdff3f8),
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,42 +51,42 @@ class _GeneratePageState extends State<GeneratePage> {
                   key: globalKey,
                   child: Container(
                     alignment: Alignment.center,
-                    // color: Colors.white,
                     decoration: BoxDecoration(
-                        color: Color(0xfffdff3f8),
-                        border: Border.all(color: Color(0xfffdff3f8), width: 5),
+                        color: const Color(0xfffdff3f8),
+                        border: Border.all(
+                            color: const Color(0xfffdff3f8), width: 5),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
                             color: Color(0xfff289ac9),
-                            offset: const Offset(0.0, 0.0),
+                            offset: Offset(0.0, 0.0),
                             blurRadius: 20,
                             spreadRadius: 5.0,
                           )
                         ]),
-                    height: 300, width: 300,
-                    // padding: EdgeInsets.all(8.0),
+                    height: 300,
+                    width: 300,
                     child: QrImage(
                       data: qrData,
                       padding: const EdgeInsets.all(20.0),
                     ),
                   ),
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Text(
                   "Generate new QR code",
                   style: GoogleFonts.lato(fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
-                  cursorColor: Color(0xfff289ac9),
+                  cursorColor: const Color(0xfff289ac9),
                   controller: qrdataFeed,
                   decoration: InputDecoration(
                     label: Text(
                       "Input your link/text here",
-                      style: GoogleFonts.lato(color: Color(0xfff289ac9)),
+                      style: GoogleFonts.lato(color: const Color(0xfff289ac9)),
                     ),
                   ),
                 ),
@@ -97,11 +96,9 @@ class _GeneratePageState extends State<GeneratePage> {
                     children: [
                       SizedBox(
                         width: 200,
-                        // height: 30,
                         child: FloatingActionButton.extended(
-                          backgroundColor: Color(0xfff289ac9),
-                          shape: StadiumBorder(),
-                          // paddding: const EdgeInsets.all(15.0),
+                          backgroundColor: const Color(0xfff289ac9),
+                          shape: const StadiumBorder(),
                           onPressed: () {
                             if (qrdataFeed.text.isEmpty) {
                               setState(() {
@@ -123,10 +120,9 @@ class _GeneratePageState extends State<GeneratePage> {
                         height: 15.0,
                       ),
                       SizedBox(
-                        // height: 30,
                         width: 200,
                         child: FloatingActionButton.extended(
-                          backgroundColor: Color(0xfff289ac9),
+                          backgroundColor: const Color(0xfff289ac9),
                           shape: const StadiumBorder(),
                           onPressed: _shareqr,
                           label: Text(
@@ -161,10 +157,6 @@ class _GeneratePageState extends State<GeneratePage> {
       final tempDir = await getTemporaryDirectory();
       final file1 = '${tempDir.path}/image.png';
       File(file1).writeAsBytesSync(pngBytes);
-
-      // final channel = MethodChannel('channel:me.alfian.share/share');
-      // channel.invokeMethod('shareFile', 'image.png');
-
       // ignore: deprecated_member_use
       await Share.shareFiles([file1],
           text: "Share the QR Code", subject: "link");

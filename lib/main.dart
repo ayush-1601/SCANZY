@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:barcode_scan2/barcode_scan2.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_qr_scanner/homePage.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MaterialApp(
